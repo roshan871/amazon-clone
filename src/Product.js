@@ -2,7 +2,8 @@ import React from 'react'
 import "./Product.css"
 import { useStateValue } from "./StateProvider"
 
-function Product({ id,title, image, price, rating }) {
+function Product({ id,title, image, price, rating}) {
+  // eslint-disable-next-line
     const [{basket}, dispatch] = useStateValue();
   
     const addToBasket = () => {
@@ -15,18 +16,19 @@ function Product({ id,title, image, price, rating }) {
           image: image,
           price: price,
           rating: rating,
+          key: id,
         },
       });
     };
     return (
         <div className="product">
-         <div className="product-info" key={id} >
+         <div className="product-info">
              <p>{title}</p>
              <p className="product-price">
                  <small>$</small>
                  <strong>{price}</strong>
              </p>
-              <div className="product-rating">
+              <div className="product-rating" key={title.id}>
               {Array(rating)
               .fill()
               .map((_,i) =>(
@@ -34,7 +36,7 @@ function Product({ id,title, image, price, rating }) {
               ))}
              </div>
              <img className="product-image" src={image} alt="image1"/>
-             <button  className="product-button" onClick={addToBasket}>Add to Cart</button>
+             <button  className="product-button" onClick={addToBasket}>Add to Basket</button>
          </div>
         </div>
     )

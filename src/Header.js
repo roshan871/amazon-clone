@@ -3,7 +3,6 @@ import "./Header.css"
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import {Link} from "react-router-dom"
-// import { SportsBasketball } from '@material-ui/icons';
 import { useStateValue } from './StateProvider';
 
 function Header() {
