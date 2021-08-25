@@ -1,14 +1,14 @@
 import React from 'react'
 import "./Product.css"
-import {useStateValue} from "./StateProvider"
+import { useStateValue } from "./StateProvider"
 
 function Product({ id,title, image, price, rating }) {
-    const [state, dispatch] = useStateValue();
+    const [{basket}, dispatch] = useStateValue();
   
     const addToBasket = () => {
       // dispatch the item into the data layer
       dispatch({
-        type: "ADD-TO-BASKET",
+        type: "ADD_TO_BASKET",
         item: {
           id: id,
           title: title,
@@ -34,7 +34,7 @@ function Product({ id,title, image, price, rating }) {
               ))}
              </div>
              <img className="product-image" src={image} alt="image1"/>
-             <button  className="product-button" onClick={addToBasket}>Add to Basket</button>
+             <button  className="product-button" onClick={addToBasket}>Add to Cart</button>
          </div>
         </div>
     )
