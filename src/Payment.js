@@ -3,17 +3,30 @@ import "./Payment.css";
 import { useStateValue } from "./StateProvider";
 import CheckoutProduct from "./ CheckoutProduct";
 import { Link } from "react-router-dom"
+import StripeCheckout from "react-stripe-checkout";
+import Subtotal from "./Subtotal";
+// import { cardElement, useStripe, useElements} from "@stripe/react-stripe-js";
+// import StripeCheckoutButton from "./StripeCheckoutButton";
 
 function Payment(){
-    const [{ basket, user }, dispatch] = useStateValue();
+    const [{ basket, user }, ] = useStateValue();
+    // const stripe = useStripe();
+    // const elements = useElements();
+    const publishableKey =
+    "pk_test_51JStr5BljLMedA1L5zq93RRZkBCPAIfViwnQ43IUQYoPC42ZcFZcjHkVQAz7qS94I7vLulfQlse1JHeal3vo3kUq00rLOt1Jqv";
+
+    // const onToken = (token) => {
+    //     console.log(token);
+    //     alert("Payment Succesful!");
+    // };
     return(
         <div className="payment">
             <div className="payment-container">
-                <h1>
+                <h3>
                     Checkout(
                         <Link to="/checkout">{basket?.length}</Link>
                     )
-                </h1>
+                </h3>
                     {/* Payment  section - Delivery address */}
                     <div className="payment-section">
                         <div className="payment-title">
@@ -49,6 +62,25 @@ function Payment(){
                         </div>
                         <div className="payment-details">
                             {/* Stripe magic will go */}
+                            <StripeCheckout
+                            label="Pay now"
+                            name="Amazon-clone"
+                            billingAddress
+                            shippingAddress
+                            image="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
+                            // description={`Your total is $${price}`}
+                            // amount={priceForStripe}
+                            // panelLabel="Pay Now"
+                            token={<Subtotal />}
+                            stripeKey={publishableKey}
+                            />
+                            <div className="checkout__right">
+                                <Subtotal />
+                            </div>
+                            {/* <form>
+                                <cardElement/>
+                            </form> */}
+                            
                         </div>
                     </div>
             </div>

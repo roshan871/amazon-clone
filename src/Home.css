@@ -10,9 +10,10 @@
   margin-left: 5px;
   margin-right: 5px;
 }
+
 .home-image {
   width: 100%;
   z-index: -1;
   margin-bottom: -150px;
-  mask-image: linear-gradient(to buttom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+  /* mask-image: linear-gradient(to buttom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)); */
 }

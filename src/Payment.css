@@ -5,7 +5,7 @@
   text-align: center;
   padding: 10px;
   font-weight: 400;
-  background-color: rgb(234, 237, 237);
+  /* background-color: rgb(234, 237, 237); */
   border-bottom: 1px solid lightgrey;
 }
 .payment-container > h1 a {
@@ -23,4 +23,7 @@
 .payment-address,
 .payment-items {
   flex: 0.8;
+}
+.payment-details {
+  flex: 0.6;
 }
